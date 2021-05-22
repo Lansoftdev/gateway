@@ -1,3 +1,4 @@
-FROM openjdk:11
+FROM openjdk:15-jdk-alpine
+VOLUME /tmp
 ADD build/libs/gateway*.jar app.jar
-ENTRYPOINT ["java", "-jar", "-agentlib:jdwp=transport=dt_socket,address=*:8899,server=y,suspend=n", "/app.jar"]
+ENTRYPOINT ["java","-jar","/app.jar"]
